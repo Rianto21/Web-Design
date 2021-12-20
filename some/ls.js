@@ -14,12 +14,21 @@
 
 //LET'S FIND THE AREA OF A CIRCLE 
 
-// const radius = 77;
-// const pi = 3.14;
-// const area_of_circle = pi*(radius**2);
-// let result = 'Area of the circle with ${radius} radius is: ${area_of_circle}';
+const radius = 77;
+const pi = 3.14;
+const area_of_circle = pi*(radius**2);
+let result = 'Area of the circle with ${radius} radius is: ${area_of_circle} ' ;
 
-// console.log(result);
+console.log(result);
+
+
+let person = {
+  name : 'Mike',
+  age : 19, 
+  job : 'Assassin'
+}
+
+console.log(person.name, person.age, person.job)
 
 
 // let html = '

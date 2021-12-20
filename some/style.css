@@ -1,0 +1,51 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to right, #43def0, #bf48d4);
+}
+
+.previous-operand {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 1.5rem;
+  color: rgba(202, 202, 202, 0.747);
+  /* background: rgba(0, 0, 0, 0.452); */
+  min-height: 7.5vh;
+  transform: translate(3.45%,0);
+  margin-right: 1rem;
+  /* margin-top: ; */
+  /* margin: 1px; */
+
+}
+
+.current-operand {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2.5rem;
+  color: rgba(255, 255, 255, 0.856);
+  /* background: rgba(0, 0, 0, 0.452); */
+  min-height: 7.5vh;
+  transform: translate(3.45%,0);
+  margin-right: 1rem;
+}
+
+.calculator , .container{
+  margin-top: 50vh;
+  /* width: 25%; */
+  background: rgba(0, 0, 0, 0.452);
+  align-items: center;
+  justify-self: center;
+  max-width: 50vh;
+
+}
+
+button {
+  border-radius: 0 !important;
+  min-height: 5vh !important;
+  min-width: 7.5vh;
+}

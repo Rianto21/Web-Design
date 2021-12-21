@@ -9,10 +9,10 @@ html, body {
   background: linear-gradient(to right, #43def0, #bf48d4);
 }
 
-.previous-operand {
+.previous-opperand {
   display: flex;
   justify-content: flex-end;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: rgba(202, 202, 202, 0.747);
   /* background: rgba(0, 0, 0, 0.452); */
   min-height: 7.5vh;
@@ -23,10 +23,10 @@ html, body {
 
 }
 
-.current-operand {
+.current-opperand {
   display: flex;
   justify-content: flex-end;
-  font-size: 2.5rem;
+  font-size: 2rem;
   color: rgba(255, 255, 255, 0.856);
   /* background: rgba(0, 0, 0, 0.452); */
   min-height: 7.5vh;
@@ -35,7 +35,7 @@ html, body {
 }
 
 .calculator , .container{
-  margin-top: 50vh;
+  margin-top: 25vh;
   /* width: 25%; */
   background: rgba(0, 0, 0, 0.452);
   align-items: center;

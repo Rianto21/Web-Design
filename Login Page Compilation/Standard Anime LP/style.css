@@ -3,9 +3,26 @@
 }
 
 html,body {
-  margin: 0%;
-  padding: 0%;
+  margin: 0;
+  padding: 0;
   height: 100%;
+}
+
+body {
+  background: linear-gradient(to top right, violet, rgb(19, 59, 190));
+  background-repeat: no-repeat ;
+  background-attachment: fixed;
+}
+
+.titletext {
+  color: cornsilk;
+  font-size: 1.5rem;
+  margin-bottom: 1.5vh;
+}
+
+.wellcome {
+  color: aliceblue;
+  margin-top: 1.5vh;
 }
 
 .slogan {
@@ -13,12 +30,23 @@ html,body {
   color: tomato;
 }
 
+/* .slogan:hover {
+  text-align: center;
+} */
+
 .lupa{
   color: aliceblue;
 }
 
 ::placeholder {
   color: rgba(255, 248, 220, 0.5);
+}
+
+/* ::placeholder:focus, ::placeholder:hover {
+  color: rgb(255, 255, 255);
+} */
+.container {
+  background: rgb(105, 105, 96) !important;
 }
 
 input[type=text], input[type=password] {
@@ -34,7 +62,7 @@ input[type=text], input[type=password] {
 }
 
 input[type=text]:focus, input[type=password]:focus{
-  border-color: hotpink;
+  border-color: tomato;
   background-color: rgba(19, 19, 19, 0.5);
   box-shadow: none !important;
   outline: none;
@@ -54,11 +82,57 @@ input[type=submit] {
 input[type=submit]:focus, input[type=submit]:hover {
   border-color: tomato;
   color: rgb(28, 56, 88);
-  font-size: 1rem;
+  font-size: 1.025rem;
+}
+
+input:focus::placeholder {
+  color: cornsilk;
+  transition: ease-in-out 0.3s;
+}
+
+.form-group {
+  margin-bottom: 1.5vh;
 }
 
 .copyright {
   color: rgba(255, 255, 255, 0.753);
   font-size: 0.75rem;
   text-align: center;
+}
+
+.otheraccount img {
+  max-width: 3rem;
+  border: solid grey 2px;
+  border-radius: 0.5rem;
+  transition: ease-in-out 0.3s;
+}
+.otheraccount img:hover{
+  border-color: rgb(28, 56, 88);
+}
+
+/* .register {
+  color: white;
+} */
+
+.register {
+  color: white;
+  text-decoration: none;
+  transition: ease-in-out 0.2s;
+  text-align: center;
+  margin: auto;
+  width: 40%;
+  margin-top: 3vh;
+  margin-bottom: 2vh;
+}
+
+.register:hover {
+  color: tomato;
+}
+
+.anime-image{
+  background-image: url("../images/Featured-Image-Shonen-Jump-wrong-better-Cropped-1000x526.jpg");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-position: center;
+  background-size: cover;
 }

@@ -1,0 +1,14 @@
+[
+  {
+    "username": "foo",
+    "password": "bar",
+    "name" : "Oryto Mikli",
+    "mobile-phone": "081234567890"
+  },
+  {
+    "username": "mike",
+    "password": "21",
+    "name" : "Mike Oryto",
+    "mobile-phone": "081234567899"
+  }
+]

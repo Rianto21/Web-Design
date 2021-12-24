@@ -166,5 +166,7 @@ input:focus::placeholder {
 @media screen and (max-width: 768px) {
   .container {
     margin: 0 auto !important;
+    /* min-height: 100%; */
   }
+ 
 }

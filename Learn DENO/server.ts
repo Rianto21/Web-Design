@@ -1,1 +1,1 @@
-console.log(Deno.cwd());
+console.log(Deno.cwd);

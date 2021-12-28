@@ -23,16 +23,20 @@ body {
 }
 
 .tictactoe {
-  min-height: 40vh;
-  min-width: 40vh;
+  min-height: 45vh;
+  min-width: 45vh;
 }
 
 .tictactoe ion-icon {
   font-size: 64px;
   transform: translate(0,2vh);
+  --ionicon-stroke-width: 45px;
+  color: green;
 }
 
 .col {
   border: solid hotpink 2px;
   border-collapse: collapse;
+  min-height: 15vh;
+  min-width: 15vh;
 }

@@ -13,7 +13,7 @@
   <div class="container-fluid w-100 navbar ">
     <div class="row row-cols-3 m-auto w-100 align-items-center text-center ">
       <div class="col-3 ">     
-        <ion-icon size="large" name="person-circle-outline"></ion-icon>
+        <ion-icon name="person-circle-outline"></ion-icon>
         <p>Hello Username</p> 
       </div>
       <div class="col-6">
@@ -26,9 +26,14 @@
     </div>
   </div>
 
+  <div id="score">
+    <h3>Player Score: <span id="playerscore">0</span></h3>
+    <h3>Enemy Score: <span id="enemyscore">0</span></h3>
+  </div>
+
   <div class="container tictactoe w-25 mt-5 m-auto border-2 d-flex flex-column">
     <div class="row flex-fill text-center row-cols-3 ">
-      <div id="1" class="col border-0 btn buttonplay"></div>
+      <div id="1" class="col border-0 btn buttonplay "></div>
       <div id="2" style="border-bottom: solid hotpink 0px; border-top: solid hotpink 0px;" class="col btn buttonplay rounded-0"></div>
       <div id="3" class="col border-0 btn buttonplay"></div>
     </div>
@@ -43,6 +48,15 @@
       <div id="9" class="col border-0 btn buttonplay"></div>
     </div>
   </div>
+
+  <div class="m-auto text-center winningmessage">
+    <h3 style="display: none;" id="winnerinfo" class="mt-3"> </h3>
+  </div>
+  <div class="m-auto text-center">
+  <button id="reset" class="btn btn-outline-info m-auto mt-3">Reset</button>
+
+  </div>
+  
 
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

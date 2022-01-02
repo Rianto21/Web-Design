@@ -23,10 +23,84 @@ class ticTacToe {
     }
   }
 
+  playerNextStepWin(){
+    for(let i = 0; i < this.remainingOption.length; i++){
+      const copy = [... this.playerSteps];
+      copy.push(this.remainingOption[i])
+      console.log(this.iswinning(copy) , i, copy)
+      if(this.iswinning(copy)){
+        this.enemySteps.push(this.remainingOption[i])
+        this.stepCount +=1
+        this.updateView(this.remainingOption[i], 'enemy')
+        let index = this.remainingOption.indexOf(this.remainingOption[i])
+        this.remainingOption.splice(index, 1)
+        if(this.enemySteps.length >= 3 && this.stepCount%2 == 0){
+          this.winningChecker(this.enemySteps, 'enemy')
+          } 
+        break
+        } else if(i == this.remainingOption.length - 1) {
+        const randomid = this.remainingOption[Math.floor(Math.random()*this.remainingOption.length)]
+        this.enemySteps.push(randomid)
+        this.stepCount +=1
+        let index = this.remainingOption.indexOf(randomid)
+        this.remainingOption.splice(index, 1)
+        this.updateView(randomid, 'enemy')
+        }
+      copy.pop()
+     }
+    }
 
   //START SECTION OF ENEMY MOVEMENT FUNTION, CREATED MANUALLY
   enemymovement() {
-    if(this.level == 'random' && this.remainingOption.length > 0 && this.key == undefined){
+    if(this.level == 'easy' && this.remainingOption.length > 0 && this.key == undefined){
+      const randomid = this.remainingOption[Math.floor(Math.random()*this.remainingOption.length)]
+      console.log(randomid)
+      this.enemySteps.push(randomid)
+      this.stepCount +=1
+      let index = this.remainingOption.indexOf(randomid)
+      this.remainingOption.splice(index, 1)
+      this.updateView(randomid, 'enemy')
+      if(this.enemySteps.length >= 3 && this.stepCount%2 == 0){
+        this.winningChecker(this.enemySteps, 'enemy')
+      }
+    } else if(this.level == 'normal' && this.remainingOption.length > 0 && this.key == undefined){
+      if(this.enemySteps.length >= 2){
+        for(let i = 0; i< this.remainingOption.length; i++){
+          const copy = [... this.enemySteps]
+          copy.push(this.remainingOption[i]);
+          if (this.iswinning(copy)){
+            console.log('bisa menang bro')
+            this.enemySteps.push(this.remainingOption[i])
+            this.stepCount += 1
+            this.updateView(this.remainingOption[i], 'enemy')
+            let index = this.remainingOption.indexOf(this.remainingOption[i])
+            this.remainingOption.splice(index, 1)
+            if(this.enemySteps.length >= 3 && this.stepCount%2 == 0){
+              this.winningChecker(this.enemySteps, 'enemy')
+            }
+            break
+          } else if ( i == this.remainingOption.length - 1){
+            this.playerNextStepWin()
+          }
+          copy.pop()
+        }
+      } else if (this.playerSteps.length >= 2 ){
+       this.playerNextStepWin()
+      } else if(this.remainingOption.includes(5)){
+          this.enemySteps.push(5)
+          this.stepCount +=1
+          let index = this.remainingOption.indexOf(5)
+          this.remainingOption.splice(index, 1)
+          this.updateView(5, 'enemy')
+      } else {
+          const randomid = this.remainingOption[Math.floor(Math.random()*this.remainingOption.length)]
+          this.enemySteps.push(randomid)
+          this.stepCount +=1
+          let index = this.remainingOption.indexOf(randomid)
+          this.remainingOption.splice(index, 1)
+          this.updateView(randomid, 'enemy')
+      }  
+    if(this.level == 'hard' && this.remainingOption.length > 0 && this.key == undefined){
       const randomid = this.remainingOption[Math.floor(Math.random()*this.remainingOption.length)]
       console.log(randomid)
       this.enemySteps.push(randomid)
@@ -39,6 +113,7 @@ class ticTacToe {
       }
     }
   }
+}
   //END SECTION OF ENEMY MOVEMENT FUNCTION, THAT CREATED MANUALLY
 
   appendSelect(id){
@@ -52,7 +127,7 @@ class ticTacToe {
       this.winningChecker(this.playerSteps, 'player')
     } 
     this.enemymovement()
-    
+    console.log(this.enemySteps, this.playerSteps)
   }
 
   combinations(array) {
@@ -92,6 +167,22 @@ class ticTacToe {
     }
     return false
   }
+
+  iswinning(arr){
+    let posibility = [...new Set(this.combinations(arr).filter(a => a.length == 3))];
+    let checker = false
+    posibility.forEach(e => {
+      if(this.arrayAlreadyHasArray(this.winning, e.sort())){
+        checker = true
+      }
+    })
+    if(checker == true){
+      return true
+    } else {
+      return false
+    }
+
+  }
   
   winningChecker(arr, side) {
     let posibility = [...new Set(this.combinations(arr).filter(a => a.length == 3))];
@@ -114,7 +205,7 @@ class ticTacToe {
         } 
       } 
     })
-    console.log(this.key)
+    // console.log(this.key)
     if(this.remainingOption.length == 0 && this.key == undefined){
       const info = document.getElementById('winnerinfo');
       info.classList.add('winnerPlayer')
@@ -160,7 +251,7 @@ const winningcomb = [
 const resetgame = document.getElementById('reset');
 
 
-const tictactoevariable = new ticTacToe([],[], winningcomb, 'random');
+const tictactoevariable = new ticTacToe([],[], winningcomb, 'normal');
 
 
 buttonelement.forEach(button => {

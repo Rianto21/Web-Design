@@ -100,17 +100,49 @@ class ticTacToe {
           this.remainingOption.splice(index, 1)
           this.updateView(randomid, 'enemy')
       }  
-    if(this.level == 'hard' && this.remainingOption.length > 0 && this.key == undefined){
-      const randomid = this.remainingOption[Math.floor(Math.random()*this.remainingOption.length)]
-      console.log(randomid)
+  } else if(this.level == 'hard' && this.remainingOption.length > 0 && this.key == undefined){
+    if(this.playerSteps.length == 1 && !this.remainingOption.includes(5)){
+      let randomid = [1,3,7,9][Math.floor(Math.random()*4)]
       this.enemySteps.push(randomid)
-      this.stepCount +=1
+      this.stepCount += 1
       let index = this.remainingOption.indexOf(randomid)
       this.remainingOption.splice(index, 1)
       this.updateView(randomid, 'enemy')
-      if(this.enemySteps.length >= 3 && this.stepCount%2 == 0){
-        this.winningChecker(this.enemySteps, 'enemy')
+    }else if(this.enemySteps.length >= 2){
+      for(let i = 0; i< this.remainingOption.length; i++){
+        const copy = [... this.enemySteps]
+        copy.push(this.remainingOption[i]);
+        if (this.iswinning(copy)){
+          console.log('bisa menang bro')
+          this.enemySteps.push(this.remainingOption[i])
+          this.stepCount += 1
+          this.updateView(this.remainingOption[i], 'enemy')
+          let index = this.remainingOption.indexOf(this.remainingOption[i])
+          this.remainingOption.splice(index, 1)
+          if(this.enemySteps.length >= 3 && this.stepCount%2 == 0){
+            this.winningChecker(this.enemySteps, 'enemy')
+          }
+          break
+        } else if ( i == this.remainingOption.length - 1){
+          this.playerNextStepWin()
+        } 
+        copy.pop()
       }
+    } else if (this.playerSteps.length >= 2 ){
+     this.playerNextStepWin()
+    } else if(this.remainingOption.includes(5)){
+        this.enemySteps.push(5)
+        this.stepCount +=1
+        let index = this.remainingOption.indexOf(5)
+        this.remainingOption.splice(index, 1)
+        this.updateView(5, 'enemy')
+    } else {
+        const randomid = this.remainingOption[Math.floor(Math.random()*this.remainingOption.length)]
+        this.enemySteps.push(randomid)
+        this.stepCount +=1
+        let index = this.remainingOption.indexOf(randomid)
+        this.remainingOption.splice(index, 1)
+        this.updateView(randomid, 'enemy')
     }
   }
 }

@@ -249,7 +249,9 @@ const winningcomb = [
   [7,8,9]
 ]
 const resetgame = document.getElementById('reset');
-const levelai = document.querySelectorAll('.level')
+const levelai = document.querySelectorAll('.level');
+// const activelevel = document.querySelector('.active');
+// console.log(activelevel.innerHTML)
 
 const tictactoevariable = new ticTacToe([],[], winningcomb, 'normal');
 
@@ -263,8 +265,11 @@ buttonelement.forEach(button => {
 
 levelai.forEach(button => {
   button.onclick = function () {
-    let x = document.getElementsByClassName('active')
-    x.classList.remove('active')
+    document.querySelector('.active').classList.remove('active') 
+    this.classList.add('active')
+    tictactoevariable.level = this.innerHTML
+    tictactoevariable.playAgain()
+    console.log(tictactoevariable.level)
   }
 })
 

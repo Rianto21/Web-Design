@@ -26,10 +26,21 @@
     </div>
   </div>
 
-  <div id="score">
-    <h3>Player Score: <span id="playerscore">0</span></h3>
-    <h3>Enemy Score: <span id="enemyscore">0</span></h3>
+
+  <div class="row top-panel justify-content-between align-items-center">
+    <div id="score" class="col">
+      <h3>Player Score: <span id="playerscore">0</span></h3>
+      <h3>Enemy Score: <span id="enemyscore">0</span></h3>
+    </div>
+    <div class="col text-end me-5">
+      <div class="btn-group">
+        <button class="btn btn-outline-info level">easy</button>
+        <button class="btn btn-outline-info level active">normal</button>
+        <button class="btn btn-outline-info level">hard</button>
+      </div>
+    </div>
   </div>
+  
 
   <div class="container tictactoe w-25 mt-5 m-auto border-2 d-flex flex-column">
     <div class="row flex-fill text-center row-cols-3 ">

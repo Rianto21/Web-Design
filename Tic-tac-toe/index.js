@@ -269,6 +269,8 @@ levelai.forEach(button => {
     this.classList.add('active')
     tictactoevariable.level = this.innerHTML
     tictactoevariable.playAgain()
+    document.getElementById('playerscore').innerHTML = 0
+    document.getElementById('enemyscore').innerHTML = 0
     console.log(tictactoevariable.level)
   }
 })
